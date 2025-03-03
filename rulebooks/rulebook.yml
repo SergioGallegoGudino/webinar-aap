@@ -1,6 +1,6 @@
 ---
 - name: Ejemplo de Rulebook para Ansible AAP
-  hosts: localhost
+  hosts: 192.168.6.70
   sources:
     - name: Escuchar eventos HTTP
       ansible.eda.http:
