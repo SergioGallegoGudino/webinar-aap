@@ -1,9 +1,0 @@
----
-schema: "2.0"
-rules:
-  - name: "Regla de ejemplo"
-    condition:
-      equals:
-        key: "valor"
-    action:
-      run: "nombre_de_la_accion"
