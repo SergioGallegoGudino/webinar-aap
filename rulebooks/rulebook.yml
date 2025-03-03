@@ -1,10 +1,10 @@
 ---
 - name: Ejemplo de Rulebook para Ansible AAP
-  hosts: 192.168.6.70
+  hosts: localhost
   sources:
     - name: Escuchar eventos HTTP
       ansible.eda.http:
-        host: 192.168.6.70
+        host: localhost
         port: 5000
   rules:
     - name: Ejecutar Playbook cuando se reciba un evento específico
