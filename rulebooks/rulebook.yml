@@ -1,4 +1,4 @@
- ---
+---
 - name: Ejemplo de Rulebook para Ansible AAP
   hosts: localhost
   sources:
