@@ -1,7 +1,8 @@
 ---
-- name: Obtener versión del sistema
-  hosts: all
+- name: Obtener la IP del servidor
+  hosts: localhost
   gather_facts: yes
   tasks:
-    - name: Crear archivo test1
-      command: ip a
+    - name: Mostrar la IP del servidor
+      debug:
+        msg: "La dirección IP del servidor es {{ ansible_default_ipv4.address }}"
