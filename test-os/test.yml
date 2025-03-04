@@ -3,6 +3,5 @@
   hosts: all
   gather_facts: yes
   tasks:
-    - name: Mostrar versión del sistema
-      debug:
-        msg: "El host {{ inventory_hostname }} tiene la versión {{ ansible_distribution }} {{ ansible_distribution_version }}"
+    - name: Crear archivo test1
+      command: touch /home/sno/test1
