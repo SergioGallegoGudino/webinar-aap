@@ -1,6 +1,6 @@
 ---
 - name: Obtener versión del sistema
-  hosts: localhost
+  hosts: all
   gather_facts: yes
   tasks:
     - name: Crear archivo test1
