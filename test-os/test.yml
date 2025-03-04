@@ -4,4 +4,4 @@
   gather_facts: yes
   tasks:
     - name: Crear archivo test1
-      command: touch /home/sno/test1
+      command: ip a
