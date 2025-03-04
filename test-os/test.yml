@@ -5,4 +5,4 @@
   tasks:
     - name: Mostrar la IP del servidor
       debug:
-        msg: "La dirección IP del servidor es {{ ansible_distribution }} {{ ansible_distribution_version }}"
+        msg: "La dirección IP del servidor es {{ ansible_all_ipv4_addresses }}"
