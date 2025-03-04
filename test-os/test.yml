@@ -1,6 +1,6 @@
 ---
 - name: Obtener la IP del servidor
-  hosts: localhost
+  hosts: all
   gather_facts: yes
   tasks:
     - name: Mostrar la IP del servidor
