@@ -1,8 +1,31 @@
 ---
-- name: Obtener la IP del servidor
+- name: Obtener información detallada del servidor
   hosts: all
   gather_facts: yes
   tasks:
-    - name: Mostrar la IP del servidor
+    - name: Mostrar información detallada del servidor
       debug:
-        msg: "La web está disponible"
+        msg:
+          - "🔹 La web está disponible, aquí tienes información del servicio."
+          - "🔹 Hostname: {{ ansible_hostname }}"
+          - "🔹 Nombre completo del host: {{ ansible_fqdn }}"
+          - "🔹 Dirección IP: {{ ansible_default_ipv4.address }}"
+          - "🔹 Interfaz de red principal: {{ ansible_default_ipv4.interface }}"
+          - "🔹 Máscara de subred: {{ ansible_default_ipv4.netmask }}"
+          - "🔹 Gateway predeterminado: {{ ansible_default_ipv4.gateway }}"
+          - "🔹 Sistema operativo: {{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_distribution_release }})"
+          - "🔹 Arquitectura: {{ ansible_architecture }}"
+          - "🔹 Kernel: {{ ansible_kernel }}"
+          - "🔹 CPU: {{ ansible_processor[1] }} ({{ ansible_processor_vcpus }} vCPUs)"
+          - "🔹 Modelo de CPU: {{ ansible_processor[2] }}"
+          - "🔹 Frecuencia de CPU: {{ ansible_processor_cores }} cores @ {{ ansible_processor_cores }} MHz"
+          - "🔹 Memoria RAM: {{ ansible_memtotal_mb }} MB"
+          - "🔹 Memoria swap: {{ ansible_swaptotal_mb }} MB"
+          - "🔹 Espacio en disco (/): {{ ansible_mounts[0].size_total // 1024 // 1024 }} MB (Total), {{ ansible_mounts[0].size_available // 1024 // 1024 }} MB (Disponible)"
+          - "🔹 Tiempo de actividad: {{ ansible_uptime_seconds | int // 3600 }} horas"
+          - "🔹 Zona horaria: {{ ansible_date_time.tz }}"
+          - "🔹 Fecha y hora actual: {{ ansible_date_time.date }} {{ ansible_date_time.time }}"
+          - "🔹 Usuario actual: {{ ansible_user_id }}"
+          - "🔹 Shell predeterminado: {{ ansible_env.SHELL }}"
+          - "🔹 Directorio de trabajo: {{ ansible_env.PWD }}"
+          - "🔹 Versión de Ansible: {{ ansible_version.full }}"
