@@ -1,8 +1,8 @@
 ---
-- name: Obtener la IP del servidor
+- name: La conexión ha fallado
   hosts: all
   gather_facts: yes
   tasks:
-    - name: Mostrar la IP del servidor
+    - name: Mostrar mensaje de error
       debug:
-        msg: "La web no está disponible"
+        msg: "ERROR, SERVICIO NO DISPONIBLE. INTENTANDO APLICAR REMEDIACIÓN... TRACE: ERROR REPORT - SERVICE UNAVAILABLE The requested service on automation-job-2898-l4z6k is currently unavailable due to a critical failure in system responsiveness. HTTP STATUS CODE: 503 Service Unavailable. INTERNAL ERROR CODE: NGX-ERR-503-TIMEOUT-002. The request to the service running on automation-job-2898-l4z6k (RedHat 8.10 - Ootpa) failed as the system did not respond within the allowed timeframe. The server operates on x86_64 architecture with kernel version 5.14.0-427.44.1.el9_4.x86_64, utilizing an AMD Ryzen 9 7950X3D 16-Core Processor with 32 vCPUs, but experienced an abnormal frequency drop reporting 16 cores @ 16 MHz, indicating a potential CPU misconfiguration or failure. System memory reports 192792 MB of RAM available, but there is zero swap memory configured, which may be contributing to resource exhaustion under high load. Disk availability on / remains at 3305285 MB free out of 3813072 MB, suggesting storage is not the primary cause of failure. The system uptime of 523 hours indicates prolonged operation without a reboot, potentially leading to degraded performance due to resource leaks. The failure occurred under UTC timezone at 2025-03-06 11:15:38, with repeated connection timeouts observed from the load balancer. Network diagnostics indicate high packet loss and latency spikes, with dropped connections from upstream services. Last Recorded Nginx Error Log Entry: [error] 4567#9876: *12567 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 192.168.1.200, server: automation-job-2898-l4z6k, request: "GET /service/status HTTP/1.1". Immediate action required to diagnose CPU throttling, memory exhaustion, and network instability before service recovery can proceed."
