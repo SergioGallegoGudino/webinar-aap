@@ -1,7 +1,6 @@
 ---
 - name: Obtener información detallada del servidor
   hosts: all
-  gather_facts: yes
   tasks:
     - name: Mostrar información detallada del servidor
       debug:
