@@ -21,6 +21,4 @@
           - "🔹 Zona horaria: {{ ansible_date_time.tz }}"
           - "🔹 Fecha y hora actual: {{ ansible_date_time.date }} {{ ansible_date_time.time }}"
           - "🔹 Usuario actual: {{ ansible_user_id }}"
-          - "🔹 Shell predeterminado: {{ ansible_env.SHELL }}"
-          - "🔹 Directorio de trabajo: {{ ansible_env.PWD }}"
           - "🔹 Versión de Ansible: {{ ansible_version.full }}"
