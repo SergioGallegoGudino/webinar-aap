@@ -1,30 +1,7 @@
 ---
-- name: Check and Restart Failed Pods
+- name: Escalar despliegue web en OpenShift
   hosts: localhost
-  gather_facts: false
+  become: true
   tasks:
-    - name: Get list of pods
-      kubernetes.core.k8s_info:
-        api_version: v1
-        kind: Pod
-        namespace: default
-      register: pods_info
-
-    - name: Filter failed pods
-      set_fact:
-        failed_pods: "{{ pods_info.resources | selectattr('status.phase', 'equalto', 'Failed') | map(attribute='metadata.name') | list }}"
-
-    - name: Restart failed pods
-      kubernetes.core.k8s:
-        api_version: v1
-        kind: Pod
-        namespace: default
-        name: "{{ item }}"
-        state: absent
-      loop: "{{ failed_pods }}"
-      when: failed_pods | length > 0
-
-    - name: Confirm restarted pods
-      debug:
-        msg: "Restarted pods: {{ failed_pods }}"
-      when: failed_pods | length > 0
+    - name: Escalar el despliegue de web
+      command: oc scale deployment web --replicas=3
