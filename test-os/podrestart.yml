@@ -4,5 +4,5 @@
   become: true
   tasks:
     - name: Escalar el despliegue de web
-      command: whoami
+      command: id
       delegate_to: localhost
