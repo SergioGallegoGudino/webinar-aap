@@ -4,4 +4,5 @@
   become: true
   tasks:
     - name: Escalar el despliegue de web
-      command: oc scale deployment web --replicas=3
+      command: whoami
+      delegate_to: localhost
